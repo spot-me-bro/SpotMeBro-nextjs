@@ -1,13 +1,32 @@
 {
-  "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "john@foo.com", "password": "changeme" }
+
+  "defaultUsers": [
+    { "email": "admin1@gmail.com", "password": "changeme", "role": "ADMIN" },
+    { "email": "admin2@gmail.com", "password": "changeme", "role": "ADMIN" },
+    { "email": "user1@gmail.com", "password": "changeme" },
+    { "email": "user2@gmail.com", "password": "changeme" },
+    { "email": "user3@gmail.com", "password": "changeme" }
   ],
 
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "defaultProfiles": [
+    {"email": "user1@gmail.com", "firstName": "john", "lastName": "doe", "bio":  "I workout", 
+    "type": "cardio", "owner": "user1@gmail.com"},
+    {"email": "user2@gmail.com", "firstName": "zach", "lastName": "smith", "bio":  "I enjoy training", 
+    "type": "legs", "owner": "user2@gmail.com"},
+    {"email": "user3@gmail.com", "firstName": "jane", "lastName": "doe", "bio":  "I workout with john", 
+    "type": "pull", "owner": "user3@gmail.com"}
+  ],
+
+  "defaultWorkouts": [
+    {"title": "first workout", 
+    "description": "Sample text for the first workout, it should be quite long and often times it will take up many paragraphs",
+  "author": "admin1@gmail.com", "type": "push"},
+  {"title": "second workout", 
+    "description": "Sample text for the second workout, it should be quite long and often times it will take up many paragraphs",
+  "author": "admin2@gmail.com", "type": "legs"},
+  {"title": "third workout", 
+    "description": "Sample text for the third workout, it should be quite long and often times it will take up many paragraphs",
+  "author": "admin1@gmail.com", "type": "cardio"}
   ]
+
 }

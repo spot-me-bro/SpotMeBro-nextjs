@@ -1,13 +1,25 @@
+// LAST UPDATED 11/20/24
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
+//------- Documentation for prisma schema
+// There are two roles,  USER and ADMIN
+// There are also profiles which store a users data, each profile has a unique user
+// (each user doesnt specifically have a unique profile, however we should make sure that this is the case)
+// Admins do not have profiles 
+// We use profiles to match people and decide what workout type or style they are into that day
+// The user is purely for backend categorization and logging purposes
+// We also have workouts which are used to store the workouts being writtten
+// They will be sorted by type and later by experience 
 generator client {
   provider = "prisma-client-js"
 }
 
+// LOOK HERE FOR VERCEL STUFF
 datasource db {
   provider = "postgresql"
   // for local development
@@ -22,24 +34,58 @@ enum Role {
   ADMIN
 }
 
+
+//The model for a user, it is largely a backend tool to store all the people who have accounts
+
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
-  role     Role   @default(USER)
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  role      Role    @default(USER)
 }
 
-enum Condition {
-  excellent
-  good
-  fair
-  poor
-}
+// This is the model for a Profile, which is associated with a user
+// The WorkoutType is defined below and will be updated quite frequently
+// Image is optional at the current stage of development to not overcomplicate anything
+// Note that Admins do not act as users, they do not have profiles and they will see a different set of pages when logging in
+// In this way they will also not come up when we are looking for users to match profiles with since we will search through 
+// Valid profiles not valid uesers
 
-model Stuff {
-  id        Int       @id @default(autoincrement())
-  name      String
-  quantity  Int
-  condition Condition
+model Profile {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  firstName String
+  lastName  String
+  bio       String
+  image     String?
+  type      WorkoutType
   owner     String
 }
+
+
+// The current type of workout the user would like to find partners for and information about
+// The status of this selection will be displayed on the user navbar and will be updated whenever the user
+// Picks a new type of workout
+
+enum WorkoutType {
+  push 
+  pull
+  legs
+  full
+  cardio
+}
+
+// These are the actual workouts that users will get recomended based on their currently selected type
+// There is an optional field for an image as sometimes it may be helpful to store an image with the workout
+// The author is required for accountability among administrators as well as logging purpose
+model Workout {
+  id          Int       @id @default(autoincrement())
+  title       String    @unique
+  image       String?
+  description String
+  author      String
+  type        WorkoutType
+  createdAt   DateTime  @default(now())
+}
+
+
