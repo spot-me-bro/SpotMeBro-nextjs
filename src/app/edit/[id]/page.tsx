@@ -1,33 +1,32 @@
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
-import { Stuff } from '@prisma/client';
+import { Workout } from '@prisma/client';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
-import EditStuffForm from '@/components/EditStuffForm';
 
-export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {
-  // Protect the page, only logged in users can access it.
+export default async function EditStuffPage({
+  params,
+}: {
+  params: { id: string | string[] };
+}) {
+  // Get the server session and protect the page
   const session = await getServerSession(authOptions);
-  loggedInProtectedPage(
-    session as {
-      user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
-    } | null,
-  );
-  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  // console.log(id);
-  const stuff: Stuff | null = await prisma.stuff.findUnique({
+  loggedInProtectedPage(session as { user: { email: string; id: string; randomKey: string } } | null);
+
+  // Parse the ID from params
+  const id = Array.isArray(params?.id) ? Number(params.id[0]) : Number(params?.id);
+
+  // Query the workout from the database
+  const workout: Workout | null = await prisma.workout.findUnique({
     where: { id },
   });
-  // console.log(stuff);
-  if (!stuff) {
+
+  // Handle the case where no workout is found
+  if (!workout) {
     return notFound();
   }
 
-  return (
-    <main>
-      <EditStuffForm stuff={stuff} />
-    </main>
-  );
+  // Return an empty main for now (can be expanded later)
+  return <main />;
 }
