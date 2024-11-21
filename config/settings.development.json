@@ -3,9 +3,12 @@
   "defaultUsers": [
     { "email": "admin1@gmail.com", "password": "changeme", "role": "ADMIN" },
     { "email": "admin2@gmail.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "user1@gmail.com", "password": "changeme" },
-    { "email": "user2@gmail.com", "password": "changeme" },
-    { "email": "user3@gmail.com", "password": "changeme" }
+    { "email": "user1@gmail.com", "password": "changeme", "firstName": "john", "lastName": "doe", "bio":  "I workout", 
+    "type": "cardio"},
+    { "email": "user2@gmail.com", "password": "changeme", "firstName": "zach", "lastName": "smith", "bio":  "I enjoy training", 
+    "type": "legs"},
+    { "email": "user3@gmail.com", "password": "changeme", "firstName": "jane", "lastName": "doe", "bio":  "I workout with john", 
+    "type": "pull"}
   ],
 
   "defaultProfiles": [
