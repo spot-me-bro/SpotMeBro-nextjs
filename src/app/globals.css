@@ -6,9 +6,20 @@ body {
   padding: 0;
   margin: 0;
 }
+
 .wrapper {
   box-sizing: border-box;
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.custom-navbar {
+  background-color: #024731 !important; /* Custom background color */
+  color: white; /* Text color */
+  padding: 0.5rem 1rem; /* Ensures a visually balanced navbar */
+}
+
+.custom-navbar .nav-link {
+  color: white !important; /* Ensures nav links are white */
 }
