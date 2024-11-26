@@ -10,7 +10,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 
 // Tells the NavBar what props it is reciving and what type they are
-// In our case we are saying it will take either a workout type
+// In our case we are saying it will take either a workout type or nothing
 // We need this in case the current user doesnt have a profile (like an admin)
 interface NavBarProps {
   profile: {
@@ -92,6 +92,12 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                 </Nav.Link>
               </>
             )}
+            {pathName.startsWith('/admin') ? (
+            <span id="list-stuff-nav" key="list" className="me-3">
+            NavBar2
+            </span>
+          )
+          : ''}
           </Nav>
         </Navbar.Collapse>
       </Container>
