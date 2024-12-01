@@ -23,3 +23,17 @@ body {
 .custom-navbar .nav-link {
   color: white !important; /* Ensures nav links are white */
 }
+
+.full-page-image {
+	width: 100vw;
+	height: 73.5vh; /* Adjust the height to your preference */
+	background-image: url('/homepage1.jpg'); /* Use your image here */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: white; /* Text color */
+  }
+  
