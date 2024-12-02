@@ -11,7 +11,8 @@ const AboutUs: React.FC = () => (
           <Col>
             <h1 className="display-4 fw-bold text-center">About Us</h1>
             <p className="text-center text-muted">
-              Welcome to SpotMeBro! Your ultimate hub for connecting with gym partners, discovering workouts, and conquering your fitness goals—together.
+              Welcome to SpotMeBro! Your ultimate hub for connecting with gym partners,
+              discovering workouts, and conquering your fitness goals—together.
             </p>
           </Col>
         </Row>
@@ -21,7 +22,8 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Our Mission</Card.Title>
                 <Card.Text>
-                  At SpotMeBro, we aim to create a community where fitness enthusiasts can connect, collaborate, and succeed together. Whether you're looking for a spotter or motivation, we've got your back!
+                  At SpotMeBro, we aim to create a community where fitness enthusiasts can connect,
+                  collaborate, and succeed together.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -31,7 +33,8 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Why Choose Us?</Card.Title>
                 <Card.Text>
-                  SpotMeBro is more than just a gym partner finder. We provide tools to manage your workouts, track progress, and share achievements with like-minded individuals.
+                  We provide tools to manage your workouts, track progress, and share achievements
+                  with like-minded individuals.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -41,7 +44,8 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Our Vision</Card.Title>
                 <Card.Text>
-                  We believe that fitness is better together. Our vision is to create a healthier, stronger world by fostering a supportive community for everyone, from beginners to experts.
+                  Our vision is to create a healthier, stronger world by fostering a supportive community for everyone,
+                  from beginners to experts.
                 </Card.Text>
               </Card.Body>
             </Card>

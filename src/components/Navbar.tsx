@@ -17,13 +17,16 @@ const NavBar: React.FC = () => {
   return (
     <Navbar className="custom-navbar" expand="lg">
       <Container>
-	  <Navbar.Brand href="/" className="mx-auto">
+        <Navbar.Brand href="/" className="mx-auto">
           <img
             src="/newlogo.png" // Path to your logo file
             alt="SpotMeBro Logo"
             height="85" // Adjust the height of the logo
           />
         </Navbar.Brand>
+        <Nav.Link href="/about" id="about-nav" active={pathName === '/about'}>
+           About Us
+        </Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
