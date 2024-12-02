@@ -1,5 +1,4 @@
 export default function EditStuffPage(): JSX.Element {
-
   return (
     <main>
       <h1>Edit Page Placeholder</h1>
@@ -7,4 +6,3 @@ export default function EditStuffPage(): JSX.Element {
     </main>
   );
 }
-
