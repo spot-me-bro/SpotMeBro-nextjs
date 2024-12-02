@@ -86,11 +86,9 @@ enum WorkoutType {
 model Workout {
   id          Int       @id @default(autoincrement())
   title       String    @unique
-  image       String?
-  description String
-  author      String
   type        WorkoutType
+  difficulty  String    // "Beginner", "Intermediate", or "Advanced"
+  exercises   Json      // JSON field to store exercise details (sets, reps, description)
+  author      String    // Email of the admin or user who created the workout
   createdAt   DateTime  @default(now())
 }
-
-
