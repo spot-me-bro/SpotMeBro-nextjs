@@ -1,13 +1,38 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-indent, @typescript-eslint/indent */
 
 'use client';
 
+import { WorkoutType } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 
-const NavBar: React.FC = () => {
+// Tells the NavBar what props it is reciving and what type they are
+// In our case we are saying it will take either a workout type or nothing
+// We need this in case the current user doesnt have a profile (like an admin)
+interface NavBarProps {
+  profile: {
+    type: WorkoutType;
+  } | null;
+}
+
+// Helper function used to go from workout type to the a string value to be displayed
+function converter(type: WorkoutType | undefined): string {
+  if (type === undefined) {
+    return 'admin';
+  }
+  switch (type) {
+    case 'push': return 'push';
+    case 'pull': return 'pull';
+    case 'legs': return 'legs';
+    case 'full': return 'full';
+    case 'cardio': return 'cardio';
+    default: return 'admin';
+  }
+}
+const NavBar: React.FC<NavBarProps> = ({ profile }) => {
   const { data: session } = useSession();
   const currentUser = session?.user?.email;
   const userWithRole = session?.user as { email: string; randomKey: string };
@@ -55,10 +80,17 @@ const NavBar: React.FC = () => {
           </Nav>
           <Nav>
             {session ? (
-              <Nav.Link id="sign-out" href="/api/auth/signout" className="circle-link">
-                <BoxArrowRight />
-                Sign Out
-              </Nav.Link>
+              <Nav className="align-items-center">
+              <span id="list-stuff-nav" key="list" className="me-3">
+                {`Current workout type: ${converter(profile?.type)}` || 'List Stuff'}
+              </span>
+              <NavDropdown id="login-dropdown" title={currentUser}>
+                <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
+                  <BoxArrowRight />
+                  Sign Out
+                </NavDropdown.Item>
+              </NavDropdown>
+              </Nav>
             ) : (
               <>
                 <Nav.Link id="sign-up" href="/auth/signup" className="circle-link">
@@ -69,6 +101,12 @@ const NavBar: React.FC = () => {
                 </Nav.Link>
               </>
             )}
+            {pathName.startsWith('/admin') ? (
+            <span id="list-stuff-nav" key="list" className="me-3">
+            NavBar2
+            </span>
+          )
+          : ''}
           </Nav>
         </Navbar.Collapse>
       </Container>
