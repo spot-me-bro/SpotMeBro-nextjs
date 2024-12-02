@@ -75,20 +75,47 @@ const AdminPage = async () => {
               <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Description</th>
+                  <th>Difficulty</th>
+                  <th>Type</th>
+                  <th>Exercises</th>
                   <th>Author</th>
-                  <th>Current Type</th>
                 </tr>
               </thead>
               <tbody>
-                {workouts.map((workout) => (
-                  <tr key={workout.id}>
-                    <td>{workout.title}</td>
-                    <td>{workout.description}</td>
-                    <td>{workout.author}</td>
-                    <td>{workout.type}</td>
-                  </tr>
-                ))}
+                {workouts.map((workout) => {
+                  // Explicitly cast exercises as an array of objects
+                  const exercises = workout.exercises as Array<{
+                    name: string;
+                    sets: number;
+                    reps: string;
+                  }>;
+
+                  return (
+                    <tr key={workout.id}>
+                      <td>{workout.title}</td>
+                      <td>{workout.difficulty}</td>
+                      <td>{workout.type}</td>
+                      <td>
+                        {exercises && exercises.length > 0 ? (
+                          <ul>
+                            {exercises.map((exercise) => (
+                              <li key={exercise.name}>
+                                {exercise.name}
+                                :
+                                {exercise.sets}
+                                sets x
+                                {exercise.reps}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>No exercises available</p>
+                        )}
+                      </td>
+                      <td>{workout.author}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
           </Col>
