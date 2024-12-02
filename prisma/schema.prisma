@@ -42,11 +42,6 @@ model User {
   email     String  @unique
   password  String
   role      Role    @default(USER)
-  firstName String?
-  lastName  String?
-  bio       String?
-  type      WorkoutType?
-  createdAt DateTime @default(now())
 }
 
 // This is the model for a Profile, which is associated with a user
@@ -92,3 +87,4 @@ model Workout {
   author      String    // Email of the admin or user who created the workout
   createdAt   DateTime  @default(now())
 }
+

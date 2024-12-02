@@ -21,9 +21,6 @@ async function main() {
         email: account.email,
         password,
         role,
-        firstName: account.firstName || null,
-        lastName: account.lastName || null,
-        bio: account.bio || null,
       },
     });
   });
