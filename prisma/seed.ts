@@ -90,9 +90,10 @@ async function main() {
       update: {},
       create: {
         title: workout.title,
-        description: workout.description,
-        author: workout.author,
         type: style,
+        difficulty: workout.difficulty,
+        exercises: workout.exercises, 
+        author: workout.author,
       },
     });
   });
