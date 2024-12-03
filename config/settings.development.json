@@ -43,16 +43,16 @@
 	  { "email": "user8@gmail.com", "firstName": "Sarah", "lastName": "Martinez", "bio": "Push workouts are my favorite", "type": "push", "owner": "user8@gmail.com" },
 	  { "email": "user9@gmail.com", "firstName": "David", "lastName": "Garcia", "bio": "Strengthening my core", "type": "pull", "owner": "user9@gmail.com" },
 	  { "email": "user10@gmail.com", "firstName": "Emma", "lastName": "Wilson", "bio": "Training for a marathon", "type": "cardio", "owner": "user10@gmail.com" }, 
-	  { "email": "user11@gmail.com", "password": "changeme", "firstName": "Ella", "lastName": "Moore", "bio": "Powerlifter in training", "type": "push" },
-	  { "email": "user12@gmail.com", "password": "changeme", "firstName": "Liam", "lastName": "Anderson", "bio": "Pull-ups are my strength", "type": "pull" },
-	  { "email": "user13@gmail.com", "password": "changeme", "firstName": "Ava", "lastName": "Taylor", "bio": "Love long-distance running", "type": "cardio" },
-	  { "email": "user14@gmail.com", "password": "changeme", "firstName": "Oliver", "lastName": "Thomas", "bio": "Leg day is every day", "type": "legs" },
-	  { "email": "user15@gmail.com", "password": "changeme", "firstName": "Sophia", "lastName": "Harris", "bio": "I enjoy yoga and full-body exercises", "type": "full" },
-	  { "email": "user16@gmail.com", "password": "changeme", "firstName": "Lucas", "lastName": "Martin", "bio": "Working on my upper body", "type": "push" },
-	  { "email": "user17@gmail.com", "password": "changeme", "firstName": "Mia", "lastName": "Lee", "bio": "I like balanced training", "type": "full" },
-	  { "email": "user18@gmail.com", "password": "changeme", "firstName": "Noah", "lastName": "Perez", "bio": "Strength training is my focus", "type": "pull" },
-	  { "email": "user19@gmail.com", "password": "changeme", "firstName": "Isabella", "lastName": "Thompson", "bio": "Working on endurance", "type": "cardio" },
-	  { "email": "user20@gmail.com", "password": "changeme", "firstName": "James", "lastName": "White", "bio": "I enjoy HIIT workouts", "type": "full" }
+	  { "email": "user11@gmail.com", "password": "changeme", "firstName": "Ella", "lastName": "Moore", "bio": "Powerlifter in training", "type": "push", "owner": "user11@gmail.com"  },
+	  { "email": "user12@gmail.com", "password": "changeme", "firstName": "Liam", "lastName": "Anderson", "bio": "Pull-ups are my strength", "type": "pull", "owner": "user12@gmail.com"  },
+	  { "email": "user13@gmail.com", "password": "changeme", "firstName": "Ava", "lastName": "Taylor", "bio": "Love long-distance running", "type": "cardio", "owner": "user13@gmail.com"  },
+	  { "email": "user14@gmail.com", "password": "changeme", "firstName": "Oliver", "lastName": "Thomas", "bio": "Leg day is every day", "type": "legs", "owner": "user14@gmail.com"  },
+	  { "email": "user15@gmail.com", "password": "changeme", "firstName": "Sophia", "lastName": "Harris", "bio": "I enjoy yoga and full-body exercises", "type": "full", "owner": "user15@gmail.com"  },
+	  { "email": "user16@gmail.com", "password": "changeme", "firstName": "Lucas", "lastName": "Martin", "bio": "Working on my upper body", "type": "push", "owner": "user16@gmail.com"  },
+	  { "email": "user17@gmail.com", "password": "changeme", "firstName": "Mia", "lastName": "Lee", "bio": "I like balanced training", "type": "full", "owner": "user17@gmail.com"  },
+	  { "email": "user18@gmail.com", "password": "changeme", "firstName": "Noah", "lastName": "Perez", "bio": "Strength training is my focus", "type": "pull", "owner": "user18@gmail.com"  },
+	  { "email": "user19@gmail.com", "password": "changeme", "firstName": "Isabella", "lastName": "Thompson", "bio": "Working on endurance", "type": "cardio", "owner": "user19@gmail.com"  },
+	  { "email": "user20@gmail.com", "password": "changeme", "firstName": "James", "lastName": "White", "bio": "I enjoy HIIT workouts", "type": "full", "owner": "user20@gmail.com"  }
 
 	],
 

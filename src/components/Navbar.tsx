@@ -6,7 +6,7 @@
 import { WorkoutType } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 
 // Tells the NavBar what props it is reciving and what type they are
@@ -43,10 +43,10 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
     <Navbar className="custom-navbar" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="mx-auto">
-          <img
-            src="/newlogo.png" // Path to your logo file
+          <Image
+            src="/newlogo.png"
             alt="SpotMeBro Logo"
-            height="85" // Adjust the height of the logo
+            height={85}
           />
         </Navbar.Brand>
         <Nav.Link href="/about" id="about-nav" active={pathName === '/about'}>
