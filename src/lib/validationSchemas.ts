@@ -1,4 +1,7 @@
 import * as Yup from 'yup';
+import { WorkoutType } from '@prisma/client';
+
+const workoutValues = Object.values(WorkoutType);
 
 export const AddStuffSchema = Yup.object({
   name: Yup.string().required(),
@@ -21,6 +24,6 @@ export const EditProfileSchema = Yup.object({
   firstName: Yup.string().required(),
   lastName: Yup.string().required(),
   bio: Yup.string().required(),
-  type: Yup.string().required(), // Assuming type is a string
+  type: Yup.string().oneOf(workoutValues).required(),
   owner: Yup.string().required(),
 });

@@ -51,7 +51,6 @@ const AdminPage = async () => {
                   <th>Current Type</th>
                   <th>Bio</th>
                   <th>Owner</th>
-                  <th>Edit Content</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,9 +62,6 @@ const AdminPage = async () => {
                     <td>{prof.type}</td>
                     <td>{prof.bio}</td>
                     <td>{prof.owner}</td>
-                    <td>
-                      <a href={`/admin/EditProfilePage/${prof.id}`}>Edit</a>
-                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -83,18 +79,43 @@ const AdminPage = async () => {
                   <th>Type</th>
                   <th>Exercises</th>
                   <th>Author</th>
-                  <th>Current Type</th>
                 </tr>
               </thead>
               <tbody>
-                {workouts.map((workout) => (
-                  <tr key={workout.id}>
-                    <td>{workout.title}</td>
-                    <td>{workout.description}</td>
-                    <td>{workout.author}</td>
-                    <td>{workout.type}</td>
-                  </tr>
-                ))}
+                {workouts.map((workout) => {
+                  // Explicitly cast exercises as an array of objects
+                  const exercises = workout.exercises as Array<{
+                    name: string;
+                    sets: number;
+                    reps: string;
+                  }>;
+
+                  return (
+                    <tr key={workout.id}>
+                      <td>{workout.title}</td>
+                      <td>{workout.difficulty}</td>
+                      <td>{workout.type}</td>
+                      <td>
+                        {exercises && exercises.length > 0 ? (
+                          <ul>
+                            {exercises.map((exercise) => (
+                              <li key={exercise.name}>
+                                {exercise.name}
+                                :
+                                {exercise.sets}
+                                sets x
+                                {exercise.reps}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>No exercises available</p>
+                        )}
+                      </td>
+                      <td>{workout.author}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
           </Col>
@@ -103,9 +124,8 @@ const AdminPage = async () => {
     </main>
   );
 };
-
 /*
-Finished updating seed.ts file, data is correctly being seeded and is accessible. See test in /app/admin/page
+Finsihed updating seed.ts file, data is correctly being seeded and is accessable. See test in /app/admin/page
 */
 
 export default AdminPage;

@@ -1,10 +1,10 @@
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { Profile } from '@prisma/client';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 import EditProfileForm from '@/components/EditProfileForm';
+import authOptions from '@/lib/authOptions';
 
 export default async function EditProfilePage({ params }: { params: { id: string | string[] } }) {
   // Protect the page, only logged in users can access it.
