@@ -73,7 +73,7 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                     href="/MatchOrFind"
                     active={pathName === '/matchorfind'}
                   >
-                    Match Or Find
+                    Match or Find
                   </Nav.Link>,
                 ]
               : ''}
