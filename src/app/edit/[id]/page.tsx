@@ -1,8 +1,33 @@
-export default function EditStuffPage(): JSX.Element {
+import { getServerSession } from 'next-auth';
+import { notFound } from 'next/navigation';
+import { Profile } from '@prisma/client';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { loggedInProtectedPage } from '@/lib/page-protection';
+import { prisma } from '@/lib/prisma';
+import EditProfileForm from '@/components/EditProfileForm';
+
+export default async function EditProfilePage({ params }: { params: { id: string | string[] } }) {
+  // Protect the page, only logged in users can access it.
+  const session = await getServerSession(authOptions);
+  loggedInProtectedPage(
+    session as {
+      user: { email: string; id: string; randomKey: string };
+      // eslint-disable-next-line @typescript-eslint/comma-dangle
+    } | null,
+  );
+  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
+  // console.log(id);
+  const profile: Profile | null = await prisma.profile.findUnique({
+    where: { id },
+  });
+  // console.log(contact);
+  if (!profile) {
+    return notFound();
+  }
+
   return (
     <main>
-      <h1>Edit Page Placeholder</h1>
-      <p>This page is not yet implemented. Stay tuned!</p>
+      <EditProfileForm profile={profile} />
     </main>
   );
 }

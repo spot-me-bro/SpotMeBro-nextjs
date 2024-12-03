@@ -51,6 +51,7 @@ const AdminPage = async () => {
                   <th>Current Type</th>
                   <th>Bio</th>
                   <th>Owner</th>
+                  <th>Edit Content</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,6 +63,9 @@ const AdminPage = async () => {
                     <td>{prof.type}</td>
                     <td>{prof.bio}</td>
                     <td>{prof.owner}</td>
+                    <td>
+                      <a href={`/admin/EditProfilePage/${prof.id}`}>Edit</a>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -78,6 +82,7 @@ const AdminPage = async () => {
                   <th>Description</th>
                   <th>Author</th>
                   <th>Current Type</th>
+                  <th>Edit Content</th>
                 </tr>
               </thead>
               <tbody>
@@ -87,6 +92,9 @@ const AdminPage = async () => {
                     <td>{workout.description}</td>
                     <td>{workout.author}</td>
                     <td>{workout.type}</td>
+                    <td>
+                      <a href={`/admin/edit-workout/${workout.id}`}>Edit</a>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -97,8 +105,9 @@ const AdminPage = async () => {
     </main>
   );
 };
+
 /*
-Finsihed updating seed.ts file, data is correctly being seeded and is accessable. See test in /app/admin/page
+Finished updating seed.ts file, data is correctly being seeded and is accessible. See test in /app/admin/page
 */
 
 export default AdminPage;
