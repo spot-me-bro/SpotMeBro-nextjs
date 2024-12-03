@@ -46,7 +46,6 @@ export async function EditProfile(profile: Profile) {
       firstName: profile.firstName,
       lastName: profile.lastName,
       email: profile.email,
-      image: profile.image,
       bio: profile.bio,
     },
   });

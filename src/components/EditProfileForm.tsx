@@ -75,18 +75,6 @@ const EditProfileForm = ({ profile }: { profile: Profile }) => {
                       <div className="invalid-feedback">{errors.email?.message}</div>
                     </Form.Group>
                   </Col>
-                  <Col>
-                    <Form.Group>
-                      <Form.Label>Image</Form.Label>
-                      <input
-                        type="text"
-                        defaultValue={profile.image || ''}
-                        {...register('image')}
-                        className={`form-control ${errors.image ? 'is-invalid' : ''}`}
-                      />
-                      <div className="invalid-feedback">{errors.image?.message}</div>
-                    </Form.Group>
-                  </Col>
                 </Row>
                 <Form.Group>
                   <Form.Label>Bio</Form.Label>

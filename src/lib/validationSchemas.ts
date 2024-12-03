@@ -15,21 +15,12 @@ export const EditStuffSchema = Yup.object({
   owner: Yup.string().required(),
 });
 
-export const EditProfileSchema = Yup.object().shape({
+export const EditProfileSchema = Yup.object({
   id: Yup.number().required(),
   email: Yup.string().email().required(),
   firstName: Yup.string().required(),
   lastName: Yup.string().required(),
   bio: Yup.string().required(),
-  image: Yup.string().nullable(),
-  tYpe: Yup.string().required(), // Assuming type is a string
+  type: Yup.string().required(), // Assuming type is a string
   owner: Yup.string().required(),
 });
-
-export interface Profile {
-  firstName: string;
-  lastName: string;
-  email: string;
-  image: string;
-  bio: string;
-}
