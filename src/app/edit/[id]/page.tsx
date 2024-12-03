@@ -6,21 +6,21 @@ import { prisma } from '@/lib/prisma';
 import EditProfileForm from '@/components/EditProfileForm';
 import authOptions from '@/lib/authOptions';
 
-export default async function EditProfilePage({ params }: { params: { id: string | string[] } }) {
+export default async function EditProfilePage({ params }: { params: { id: string } }) {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
     session as {
       user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
     } | null,
   );
-  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  // console.log(id);
+
+  const id = Number(params.id);
+
   const profile: Profile | null = await prisma.profile.findUnique({
     where: { id },
   });
-  // console.log(contact);
+
   if (!profile) {
     return notFound();
   }
