@@ -14,3 +14,13 @@ export const EditStuffSchema = Yup.object({
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
 });
+
+export const EditProfileSchema = Yup.object({
+  id: Yup.number().required(),
+  email: Yup.string().email().required(),
+  firstName: Yup.string().required(),
+  lastName: Yup.string().required(),
+  bio: Yup.string().required(),
+  type: Yup.string().required(), // Assuming type is a string
+  owner: Yup.string().required(),
+});

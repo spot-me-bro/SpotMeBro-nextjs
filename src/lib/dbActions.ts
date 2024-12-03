@@ -1,7 +1,10 @@
 'use server';
 
 import { hash } from 'bcrypt';
+import { Profile } from '@prisma/client';
+import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
+
 /**
  * Deletes an existing stuff from the database.
  * @param id, the id of the stuff to delete.
@@ -34,4 +37,17 @@ export async function changePassword(credentials: { email: string; password: str
       password,
     },
   });
+}
+
+export async function EditProfile(profile: Profile) {
+  await prisma.profile.update({
+    where: { id: profile.id },
+    data: {
+      firstName: profile.firstName,
+      lastName: profile.lastName,
+      email: profile.email,
+      bio: profile.bio,
+    },
+  });
+  redirect('/list');
 }
