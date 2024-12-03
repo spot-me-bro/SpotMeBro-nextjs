@@ -68,6 +68,13 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                   >
                     <strong>Select a Workout</strong>
                   </Nav.Link>,
+                  <Nav.Link
+                    id="match-or-find-nav"
+                    href="/MatchOrFind"
+                    active={pathName === '/matchorfind'}
+                  >
+                    Match Or Find
+                  </Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (
