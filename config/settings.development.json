@@ -1,35 +1,234 @@
 {
+	"defaultUsers": [
+	  { "email": "admin1@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin2@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin3@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin4@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin5@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin6@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin7@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin8@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin9@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "admin10@gmail.com", "password": "changeme", "role": "ADMIN" },
+	  { "email": "user1@gmail.com", "password": "changeme", "firstName": "John", "lastName": "Doe", "bio": "I workout", "type": "cardio" },
+	  { "email": "user2@gmail.com", "password": "changeme", "firstName": "Zach", "lastName": "Smith", "bio": "I enjoy training", "type": "legs" },
+	  { "email": "user3@gmail.com", "password": "changeme", "firstName": "Jane", "lastName": "Doe", "bio": "I workout with John", "type": "pull" },
+	  { "email": "user4@gmail.com", "password": "changeme", "firstName": "Mike", "lastName": "Johnson", "bio": "Love outdoor cardio", "type": "cardio" },
+	  { "email": "user5@gmail.com", "password": "changeme", "firstName": "Emily", "lastName": "Brown", "bio": "Focus on leg strength", "type": "legs" },
+	  { "email": "user6@gmail.com", "password": "changeme", "firstName": "Alex", "lastName": "Williams", "bio": "Pull workouts are my go-to", "type": "pull" },
+	  { "email": "user7@gmail.com", "password": "changeme", "firstName": "Chris", "lastName": "Davis", "bio": "I'm all about full-body training", "type": "full" },
+	  { "email": "user8@gmail.com", "password": "changeme", "firstName": "Sarah", "lastName": "Martinez", "bio": "Push workouts are my favorite", "type": "push" },
+	  { "email": "user9@gmail.com", "password": "changeme", "firstName": "David", "lastName": "Garcia", "bio": "Strengthening my core", "type": "pull" },
+	  { "email": "user10@gmail.com", "password": "changeme", "firstName": "Emma", "lastName": "Wilson", "bio": "Training for a marathon", "type": "cardio" },
+	  { "email": "user11@gmail.com", "password": "changeme", "firstName": "Ella", "lastName": "Moore", "bio": "Powerlifter in training", "type": "push" },
+	  { "email": "user12@gmail.com", "password": "changeme", "firstName": "Liam", "lastName": "Anderson", "bio": "Pull-ups are my strength", "type": "pull" },
+	  { "email": "user13@gmail.com", "password": "changeme", "firstName": "Ava", "lastName": "Taylor", "bio": "Love long-distance running", "type": "cardio" },
+	  { "email": "user14@gmail.com", "password": "changeme", "firstName": "Oliver", "lastName": "Thomas", "bio": "Leg day is every day", "type": "legs" },
+	  { "email": "user15@gmail.com", "password": "changeme", "firstName": "Sophia", "lastName": "Harris", "bio": "I enjoy yoga and full-body exercises", "type": "full" },
+	  { "email": "user16@gmail.com", "password": "changeme", "firstName": "Lucas", "lastName": "Martin", "bio": "Working on my upper body", "type": "push" },
+	  { "email": "user17@gmail.com", "password": "changeme", "firstName": "Mia", "lastName": "Lee", "bio": "I like balanced training", "type": "full" },
+	  { "email": "user18@gmail.com", "password": "changeme", "firstName": "Noah", "lastName": "Perez", "bio": "Strength training is my focus", "type": "pull" },
+	  { "email": "user19@gmail.com", "password": "changeme", "firstName": "Isabella", "lastName": "Thompson", "bio": "Working on endurance", "type": "cardio" },
+	  { "email": "user20@gmail.com", "password": "changeme", "firstName": "James", "lastName": "White", "bio": "I enjoy HIIT workouts", "type": "full" }
+	],
+  
+	"defaultProfiles": [
+	  { "email": "user1@gmail.com", "firstName": "John", "lastName": "Doe", "bio": "I workout", "type": "cardio", "owner": "user1@gmail.com" },
+	  { "email": "user2@gmail.com", "firstName": "Zach", "lastName": "Smith", "bio": "I enjoy training", "type": "legs", "owner": "user2@gmail.com" },
+	  { "email": "user3@gmail.com", "firstName": "Jane", "lastName": "Doe", "bio": "I workout with John", "type": "pull", "owner": "user3@gmail.com" },
+	  { "email": "user4@gmail.com", "firstName": "Mike", "lastName": "Johnson", "bio": "Love outdoor cardio", "type": "cardio", "owner": "user4@gmail.com" },
+	  { "email": "user5@gmail.com", "firstName": "Emily", "lastName": "Brown", "bio": "Focus on leg strength", "type": "legs", "owner": "user5@gmail.com" },
+	  { "email": "user6@gmail.com", "firstName": "Alex", "lastName": "Williams", "bio": "Pull workouts are my go-to", "type": "pull", "owner": "user6@gmail.com" },
+	  { "email": "user7@gmail.com", "firstName": "Chris", "lastName": "Davis", "bio": "I'm all about full-body training", "type": "full", "owner": "user7@gmail.com" },
+	  { "email": "user8@gmail.com", "firstName": "Sarah", "lastName": "Martinez", "bio": "Push workouts are my favorite", "type": "push", "owner": "user8@gmail.com" },
+	  { "email": "user9@gmail.com", "firstName": "David", "lastName": "Garcia", "bio": "Strengthening my core", "type": "pull", "owner": "user9@gmail.com" },
+	  { "email": "user10@gmail.com", "firstName": "Emma", "lastName": "Wilson", "bio": "Training for a marathon", "type": "cardio", "owner": "user10@gmail.com" }
+	],
 
-  "defaultUsers": [
-    { "email": "admin1@gmail.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "admin2@gmail.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "user1@gmail.com", "password": "changeme", "firstName": "john", "lastName": "doe", "bio":  "I workout", 
-    "type": "cardio"},
-    { "email": "user2@gmail.com", "password": "changeme", "firstName": "zach", "lastName": "smith", "bio":  "I enjoy training", 
-    "type": "legs"},
-    { "email": "user3@gmail.com", "password": "changeme", "firstName": "jane", "lastName": "doe", "bio":  "I workout with john", 
-    "type": "pull"}
-  ],
-
-  "defaultProfiles": [
-    {"email": "user1@gmail.com", "firstName": "john", "lastName": "doe", "bio":  "I workout", 
-    "type": "cardio", "owner": "user1@gmail.com"},
-    {"email": "user2@gmail.com", "firstName": "zach", "lastName": "smith", "bio":  "I enjoy training", 
-    "type": "legs", "owner": "user2@gmail.com"},
-    {"email": "user3@gmail.com", "firstName": "jane", "lastName": "doe", "bio":  "I workout with john", 
-    "type": "pull", "owner": "user3@gmail.com"}
-  ],
-
-  "defaultWorkouts": [
-    {"title": "first workout", 
-    "description": "Sample text for the first workout, it should be quite long and often times it will take up many paragraphs",
-  "author": "admin1@gmail.com", "type": "push"},
-  {"title": "second workout", 
-    "description": "Sample text for the second workout, it should be quite long and often times it will take up many paragraphs",
-  "author": "admin2@gmail.com", "type": "legs"},
-  {"title": "third workout", 
-    "description": "Sample text for the third workout, it should be quite long and often times it will take up many paragraphs",
-  "author": "admin1@gmail.com", "type": "cardio"}
-  ]
-
+	"defaultWorkouts": [
+		{
+		  "title": "Push Beginner",
+		  "type": "push",
+		  "difficulty": "Beginner",
+		  "exercises": [
+			{ "name": "Incline Push-Ups", "sets": 3, "reps": "10-12" },
+			{ "name": "Knee Push-Ups", "sets": 3, "reps": "10-12" },
+			{ "name": "Dumbbell Overhead Press (or water bottles)", "sets": 3, "reps": "8-10" },
+			{ "name": "Tricep Dips on Chair", "sets": 3, "reps": "8-10" }
+		  ],
+		  "author": "admin1@gmail.com"
+		},
+		{
+		  "title": "Push Intermediate",
+		  "type": "push",
+		  "difficulty": "Intermediate",
+		  "exercises": [
+			{ "name": "Flat Push-Ups", "sets": 4, "reps": "10-12" },
+			{ "name": "Incline Dumbbell Bench Press", "sets": 3, "reps": "8-12" },
+			{ "name": "Arnold Press", "sets": 3, "reps": "8-10" },
+			{ "name": "Skull Crushers (EZ bar or dumbbells)", "sets": 3, "reps": "10-12" }
+		  ],
+		  "author": "admin2@gmail.com"
+		},
+		{
+		  "title": "Push Advanced",
+		  "type": "push",
+		  "difficulty": "Advanced",
+		  "exercises": [
+			{ "name": "Weighted Push-Ups (backpack or plate)", "sets": 4, "reps": "10-15" },
+			{ "name": "Barbell Bench Press", "sets": 4, "reps": "6-8" },
+			{ "name": "Seated Dumbbell Shoulder Press", "sets": 3, "reps": "8-10" },
+			{ "name": "Dips (Parallel Bars)", "sets": 3, "reps": "12-15" }
+		  ],
+		  "author": "admin3@gmail.com"
+		},
+	
+		{
+		  "title": "Pull Beginner",
+		  "type": "pull",
+		  "difficulty": "Beginner",
+		  "exercises": [
+			{ "name": "Resistance Band Rows", "sets": 3, "reps": "10-12" },
+			{ "name": "Superman Hold (Back Extensions)", "sets": 3, "reps": "30 sec" },
+			{ "name": "Dumbbell Bicep Curls", "sets": 3, "reps": "10-12" },
+			{ "name": "Face Pulls with Bands", "sets": 3, "reps": "10-12" }
+		  ],
+		  "author": "admin1@gmail.com"
+		},
+		{
+		  "title": "Pull Intermediate",
+		  "type": "pull",
+		  "difficulty": "Intermediate",
+		  "exercises": [
+			{ "name": "Inverted Rows (Under a Table)", "sets": 4, "reps": "8-10" },
+			{ "name": "Single-Arm Dumbbell Row", "sets": 3, "reps": "8-10 per side" },
+			{ "name": "Chin-Ups (Assisted if needed)", "sets": 3, "reps": "6-8" },
+			{ "name": "Barbell Curls", "sets": 3, "reps": "10-12" }
+		  ],
+		  "author": "admin2@gmail.com"
+		},
+		{
+		  "title": "Pull Advanced",
+		  "type": "pull",
+		  "difficulty": "Advanced",
+		  "exercises": [
+			{ "name": "Pull-Ups (Weighted Optional)", "sets": 4, "reps": "8-10" },
+			{ "name": "Bent-Over Barbell Rows", "sets": 4, "reps": "6-8" },
+			{ "name": "T-Bar Rows or Chest-Supported Rows", "sets": 3, "reps": "8-10" },
+			{ "name": "Hammer Curls (Heavy)", "sets": 3, "reps": "8-10" }
+		  ],
+		  "author": "admin3@gmail.com"
+		},
+	
+		{
+		  "title": "Leg Beginner",
+		  "type": "legs",
+		  "difficulty": "Beginner",
+		  "exercises": [
+			{ "name": "Bodyweight Squats", "sets": 3, "reps": "10-15" },
+			{ "name": "Glute Bridges", "sets": 3, "reps": "10-15" },
+			{ "name": "Step-Ups (on a sturdy surface)", "sets": 3, "reps": "8-10 per leg" },
+			{ "name": "Calf Raises", "sets": 3, "reps": "15-20" }
+		  ],
+		  "author": "admin1@gmail.com"
+		},
+		{
+		  "title": "Leg Intermediate",
+		  "type": "legs",
+		  "difficulty": "Intermediate",
+		  "exercises": [
+			{ "name": "Dumbbell Goblet Squats", "sets": 4, "reps": "8-10" },
+			{ "name": "Romanian Deadlifts (Dumbbells)", "sets": 3, "reps": "8-10" },
+			{ "name": "Walking Lunges", "sets": 3, "reps": "10-12 per leg" },
+			{ "name": "Seated or Standing Calf Raises (Weighted)", "sets": 4, "reps": "15-20" }
+		  ],
+		  "author": "admin2@gmail.com"
+		},
+		{
+		  "title": "Leg Advanced",
+		  "type": "legs",
+		  "difficulty": "Advanced",
+		  "exercises": [
+			{ "name": "Barbell Back Squats", "sets": 4, "reps": "5-8" },
+			{ "name": "Deadlifts (Conventional or Romanian)", "sets": 4, "reps": "6-8" },
+			{ "name": "Bulgarian Split Squats (Weighted)", "sets": 3, "reps": "8-10 per leg" },
+			{ "name": "Calf Raises (Heavy Load)", "sets": 4, "reps": "20-25" }
+		  ],
+		  "author": "admin3@gmail.com"
+		},
+	
+		{
+			"title": "Full-Body Beginner",
+			"type": "full",
+			"difficulty": "Beginner",
+			"exercises": [
+			  { "name": "Bodyweight Squats", "sets": 3, "reps": "10-12" },
+			  { "name": "Incline Push-Ups", "sets": 3, "reps": "10-12" },
+			  { "name": "Superman Hold (Back)", "sets": 3, "reps": "30 sec" },
+			  { "name": "Mountain Climbers", "sets": 3, "reps": "20-30 sec" }
+			],
+			"author": "admin1@gmail.com"
+		  },
+		  {
+			"title": "Full-Body Intermediate",
+			"type": "full",
+			"difficulty": "Intermediate",
+			"exercises": [
+			  { "name": "Kettlebell/Dumbbell Deadlifts", "sets": 4, "reps": "8-10" },
+			  { "name": "Push-Ups (Flat)", "sets": 3, "reps": "10-15" },
+			  { "name": "Bent-Over Dumbbell Rows", "sets": 3, "reps": "8-12" },
+			  { "name": "Jump Squats", "sets": 3, "reps": "12-15" }
+			],
+			"author": "admin2@gmail.com"
+		  },
+		  {
+			"title": "Full-Body Advanced",
+			"type": "full",
+			"difficulty": "Advanced",
+			"exercises": [
+			  { "name": "Barbell Deadlifts", "sets": 4, "reps": "6-8" },
+			  { "name": "Weighted Dips (Chest-Focused)", "sets": 3, "reps": "10-12" },
+			  { "name": "Pull-Ups (Weighted)", "sets": 4, "reps": "6-8" },
+			  { "name": "Burpees with Jump Squat", "sets": 4, "reps": "15-20" }
+			],
+			"author": "admin3@gmail.com"
+		  },
+	  
+		  {
+			"title": "Cardio Beginner",
+			"type": "cardio",
+			"difficulty": "Beginner",
+			"exercises": [
+			  { "name": "Treadmill", "duration": "20-30 minutes" },
+			  { "name": "Jumping Jacks", "sets": 3, "reps": "30 sec" },
+			  { "name": "Jump Rope", "sets": 3, "reps": "30 sec" },
+			  { "name": "High Knees (Moderate)", "sets": 3, "reps": "20-30 sec" }
+			],
+			"author": "admin1@gmail.com"
+		  },
+		  {
+			"title": "Cardio Intermediate",
+			"type": "cardio",
+			"difficulty": "Intermediate",
+			"exercises": [
+			  { "name": "Jogging/Running", "duration": "20-30 minutes" },
+			  { "name": "Burpees", "sets": 3, "reps": "10-12" },
+			  { "name": "Jump Rope", "sets": 3, "duration": "1-2 minutes" },
+			  { "name": "Mountain Climbers", "sets": 3, "reps": "30 sec" }
+			],
+			"author": "admin2@gmail.com"
+		  },
+		  {
+			"title": "Cardio Advanced",
+			"type": "cardio",
+			"difficulty": "Advanced",
+			"exercises": [
+			  { "name": "HIIT Sprints", "sets": 8, "duration": "20 sec sprint, 40 sec rest" },
+			  { "name": "Rowing Machine or Assault Bike", "duration": "15-20 minutes at high intensity" },
+			  { "name": "Jump Rope", "sets": 5, "duration": "1-2 minutes" },
+			  { "name": "Box Jumps or Plyo Push-Ups", "sets": 3, "reps": "10-15" }
+			],
+			"author": "admin3@gmail.com"
+		  }
+		]
 }

@@ -21,9 +21,6 @@ async function main() {
         email: account.email,
         password,
         role,
-        firstName: account.firstName || null,
-        lastName: account.lastName || null,
-        bio: account.bio || null,
       },
     });
   });
@@ -90,9 +87,10 @@ async function main() {
       update: {},
       create: {
         title: workout.title,
-        description: workout.description,
-        author: workout.author,
         type: style,
+        difficulty: workout.difficulty,
+        exercises: workout.exercises, 
+        author: workout.author,
       },
     });
   });
