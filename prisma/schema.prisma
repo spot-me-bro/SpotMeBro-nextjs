@@ -76,15 +76,14 @@ enum WorkoutType {
 }
 
 // These are the actual workouts that users will get recomended based on their currently selected type
-// There is an optional field for an image as sometimes it may be helpful to store an image with the workout
 // The author is required for accountability among administrators as well as logging purpose
 model Workout {
   id          Int       @id @default(autoincrement())
   title       String    @unique
   type        WorkoutType
-  difficulty  String    // "Beginner", "Intermediate", or "Advanced"
-  exercises   Json      // JSON field to store exercise details (sets, reps, description)
-  author      String    // Email of the admin or user who created the workout
+  difficulty  String    @default("Beginner") 
+  exercises   Json      @default("[]")        
+  author      String   
   createdAt   DateTime  @default(now())
 }
 
