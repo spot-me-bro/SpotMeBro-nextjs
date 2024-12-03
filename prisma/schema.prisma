@@ -1,4 +1,4 @@
-// LAST UPDATED 11/20/24
+// LAST UPDATED 12/2/2024
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -50,7 +50,7 @@ model User {
 // Note that Admins do not act as users, they do not have profiles and they will see a different set of pages when logging in
 // In this way they will also not come up when we are looking for users to match profiles with since we will search through 
 // Valid profiles not valid uesers
-
+// For a user to be completed it the user should have a matching profile, we will have to ensure this in another section of the app
 model Profile {
   id        Int     @id @default(autoincrement())
   email     String  @unique
