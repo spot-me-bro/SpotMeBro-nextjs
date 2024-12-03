@@ -25,7 +25,7 @@ async function main() {
     });
   });
   // Adding the default profiles, the switch statement translates the workout type enum to a string
-  config.defaultProfiles.forEach(async (prof, index) => {
+  config.defaultProfiles.forEach(async (prof) => {
     let style: WorkoutType;
     switch (prof.type) {
       case 'push':
@@ -49,7 +49,6 @@ async function main() {
       where: { email: prof.email },
       update: {},
       create: {
-        id: index,
         email: prof.email,
         firstName: prof.firstName,
         lastName: prof.lastName,
@@ -89,7 +88,7 @@ async function main() {
         title: workout.title,
         type: style,
         difficulty: workout.difficulty,
-        exercises: workout.exercises, 
+        exercises: workout.exercises,
         author: workout.author,
       },
     });
