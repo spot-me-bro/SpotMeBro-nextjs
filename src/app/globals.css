@@ -84,35 +84,29 @@ body {
 	color: #333; /* Dark text for readability */
   }
 
-  /* MatchOrFind Component Styles */
-.match-or-find-container {
-	height: 100vh;
-}
-
-.match-or-find-heading {
-	text-align: center;
-	font-weight: bold;
-	font-size: 2rem;
+  .list-workouts-page {
+	background-color: rgba(0, 0, 0, 0.8); /* Add a dark overlay to the background image */
+	color: #000000; /* White text for visibility */
   }
-
-  .match-or-find-button {
-	display: block;
-	padding: 20px 40px;
-	font-size: 1.2rem;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: none;
-	background-color: #024731;
-	color: #fff;
-  	border-radius: 10px;
-  	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  	transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.match-or-find-button:hover {
-	transform: scale(1.05);
-	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-	background-color: #024731;
+  
+  
+  .list-workouts-page h1 {
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add a shadow to the title */
   }
+  
+  .list-workouts-page .card {
+	background: rgba(255, 255, 255, 0.9); /* Slightly transparent card background */
+	border: none;
+  }
+  
+  .list-workouts-page ul {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .list-workouts-page ul li {
+	padding: 5px 0;
+  }
+  
   
   
