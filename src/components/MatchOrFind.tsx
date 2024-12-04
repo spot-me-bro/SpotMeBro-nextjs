@@ -1,20 +1,24 @@
 'use client';
 
-import Link from 'next/link';
 import '../app/globals.css'; // Import the CSS file
+import { Button, Col, Container, Row } from 'react-bootstrap';
 
 const MatchOrFind: React.FC = () => (
-  <div className="container">
-    <h1 className="heading">Please select one of the two choices</h1>
-    <div className="button-container">
-      <Link href="/#">
-        <a className="button" href="/#">Match Gym Bros</a>
-      </Link>
-      <Link href="/#">
-        <a className="button" href="/#">Find a Workout Page</a>
-      </Link>
-    </div>
-  </div>
+  <Container fluid className="d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1 className="heading mb-4">Please select one of the two choices</h1>
+    <Row className="justify-content-center">
+      <Col xs="auto">
+        <Button href="/#" className="match-or-find-button">
+          Match Gym Bros
+        </Button>
+      </Col>
+      <Col xs="auto">
+        <Button href="/#" className="match-or-find-button">
+          Find Workouts
+        </Button>
+      </Col>
+    </Row>
+  </Container>
 );
 
 export default MatchOrFind;
