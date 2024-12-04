@@ -8,12 +8,12 @@ const MatchOrFind: React.FC = () => (
     <h1 className="heading mb-4">Please select one of the two choices</h1>
     <Row className="justify-content-center">
       <Col xs="auto">
-        <Button href="/#" className="match-or-find-button">
+        <Button href="/list_partners" className="match-or-find-button">
           Match Gym Bros
         </Button>
       </Col>
       <Col xs="auto">
-        <Button href="/#" className="match-or-find-button">
+        <Button href="/ListWorkouts" className="match-or-find-button">
           Find Workouts
         </Button>
       </Col>

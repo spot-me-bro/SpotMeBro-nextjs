@@ -6,7 +6,7 @@
 import { WorkoutType } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 
 // Tells the NavBar what props it is reciving and what type they are
@@ -43,11 +43,11 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
     <Navbar className="custom-navbar" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="mx-auto">
-          <img
-            src="/newlogo.png" // Path to your logo file
-            alt="SpotMeBro Logo"
-            height="85" // Adjust the height of the logo
-          />
+        <Image
+          src="/newlogo.png"
+          alt="SpotMeBro Logo"
+          height={85}
+        />
         </Navbar.Brand>
         <Nav.Link href="/about" id="about-nav" active={pathName === '/about'}>
            About Us
@@ -68,7 +68,6 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                   >
                     <strong>Select a Workout</strong>
                   </Nav.Link>,
-				  <Nav.Link href="/ListWorkouts">Workouts</Nav.Link>,
                   <Nav.Link
                     id="match-or-find-nav"
                     href="/MatchOrFind"
@@ -76,6 +75,7 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                   >
                     Match or Find
                   </Nav.Link>,
+                  <Nav.Link href="/ListWorkouts">Workouts</Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (
