@@ -68,6 +68,7 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                   >
                     <strong>Select a Workout</strong>
                   </Nav.Link>,
+				  <Nav.Link href="/ListWorkouts">Workouts</Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (

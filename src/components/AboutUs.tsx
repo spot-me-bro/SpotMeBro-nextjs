@@ -22,7 +22,7 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Our Mission</Card.Title>
                 <Card.Text>
-                  At SpotMeBro, we aim to create a community where fitness enthusiasts can connect,
+                  At SpotMeBro, we aim to create a community where students can connect,
                   collaborate, and succeed together.
                 </Card.Text>
               </Card.Body>

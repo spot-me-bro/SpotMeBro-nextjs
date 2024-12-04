@@ -83,5 +83,30 @@ body {
 	padding: 2rem; /* Add some spacing */
 	color: #333; /* Dark text for readability */
   }
+
+  .list-workouts-page {
+	background-color: rgba(0, 0, 0, 0.8); /* Add a dark overlay to the background image */
+	color: #000000; /* White text for visibility */
+  }
+  
+  
+  .list-workouts-page h1 {
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add a shadow to the title */
+  }
+  
+  .list-workouts-page .card {
+	background: rgba(255, 255, 255, 0.9); /* Slightly transparent card background */
+	border: none;
+  }
+  
+  .list-workouts-page ul {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .list-workouts-page ul li {
+	padding: 5px 0;
+  }
+  
   
   
