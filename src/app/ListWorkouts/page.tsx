@@ -1,16 +1,18 @@
+import React from 'react';
 import ListWorkouts from '@/components/ListWorkouts';
-import { PrismaClient } from '@prisma/client';
-// import { getServerSession } from 'next-auth';
 
-const prisma = new PrismaClient(); // Start a new prisma session
+// Import your JSON workout data
+import workoutData from '../../../config/settings.development.json';
 
-const ListWorkoutsPage = async () => {
-  // const session = await getServerSession();
-  // const currentUser = session?.user?.email; // Get current users email bassed on the session data
+const Page: React.FC = () => {
+  const workouts = workoutData.defaultWorkouts; // Access the "defaultWorkouts" array
 
-  const workouts = await prisma.workout.findMany();
-  // Find the matching profile associated with the current user, as of right now this is done by matching emails
-  return <ListWorkouts workout={workouts[0]} />;
+  return (
+    <div>
+      <h1 className="text-center my-4">Workout List</h1>
+      <ListWorkouts workouts={workouts} />
+    </div>
+  );
 };
 
-export default ListWorkoutsPage;
+export default Page;

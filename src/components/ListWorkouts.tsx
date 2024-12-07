@@ -1,93 +1,77 @@
 'use client';
 
-import { WorkoutType } from '@prisma/client';
-import { JsonValue } from '@prisma/client/runtime/library';
-// import { DateTime } from 'next-auth/providers/kakao';
-import React from 'react';
-import { Container, Row } from 'react-bootstrap';
-// add Col, Card from bootstrap
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Dropdown, DropdownButton } from 'react-bootstrap';
 
-interface ListWorkoutsProps {
-  workout: {
-    id: number;
-    title: string;
-    type: WorkoutType;
-    difficulty: string
-    exercises: JsonValue;
-    author: string;
-    createdAt: Date;
-  } | null;
+// Define the Workout type interface based on your JSON structure
+interface Workout {
+  title: string;
+  type: string;
+  difficulty: string;
+  exercises: { name: string; sets: number; reps: string }[];
+  author: string;
 }
 
-// Helper function used to go from workout type to the a string value to be displayed
-// function converter(type: WorkoutType | undefined): string {
-//   if (type === undefined) {
-//     return 'admin';
-//   }
-//   switch (type) {
-//     case 'push': return 'push';
-//     case 'pull': return 'pull';
-//     case 'legs': return 'legs';
-//     case 'full': return 'full';
-//     case 'cardio': return 'cardio';
-//     default: return 'admin';
-//   }
-// }
-const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workout }) => (
-  <div
-    className="list-workouts-page"
-    style={{
-      backgroundImage: 'url(/ListWorkouts.avif)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      minHeight: '100vh',
-    }}
-  >
+// Props for ListWorkouts
+interface ListWorkoutsProps {
+  workouts: Workout[];
+}
+
+const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
+  const [filteredWorkouts, setFilteredWorkouts] = useState<Workout[]>(workouts);
+  const [selectedType, setSelectedType] = useState<string>('');
+
+  const handleSelect = (eventKey: string | null) => {
+    if (eventKey) {
+      setSelectedType(eventKey);
+
+      // Filter workouts based on the selected type
+      const filtered = workouts.filter((workout) => workout.type === eventKey.toLowerCase());
+      setFilteredWorkouts(filtered);
+    }
+  };
+
+  return (
     <Container>
+      {/* Dropdown to filter workouts */}
+      <div className="d-flex justify-content-center my-4">
+        <Dropdown onSelect={handleSelect}>
+          <DropdownButton variant="outline-dark" title={selectedType || 'Select workout type'}>
+            <Dropdown.Item eventKey="push">Push</Dropdown.Item>
+            <Dropdown.Item eventKey="pull">Pull</Dropdown.Item>
+            <Dropdown.Item eventKey="legs">Legs</Dropdown.Item>
+            <Dropdown.Item eventKey="full">Full Body</Dropdown.Item>
+            <Dropdown.Item eventKey="cardio">Cardio</Dropdown.Item>
+          </DropdownButton>
+        </Dropdown>
+      </div>
+
+      {/* Display filtered workouts */}
       <Row>
-        <div>
-          {workout?.author}
-        </div>
-        <div>
-          {workout?.title}
-        </div>
-        <div>
-          {workout?.type}
-        </div>
-      </Row>
-    </Container>
-    {/* <Container className="py-5">
-      <Row>
-        <Col>
-          <h1 className="text-center text-black display-4">Workouts</h1>
-          <p className="text-center text-dark">
-            Browse through a variety of workouts based on your fitness goals and skill level.
-          </p>
-        </Col>
-      </Row>
-      {workouts.map((workout) => (
-        <Row key={workout.type} className="my-4">
-          <Col>
-            <h2 className="text-black">{workout.type} Workouts</h2>
-            {workout.levels.map((level) => (
-              <Card className="mb-4 shadow-sm" key={level.difficulty}>
-                <Card.Body>
-                  <Card.Title className="text-dark">{level.difficulty} Level</Card.Title>
+        {filteredWorkouts.map((workout, index) => (
+          <Col key={index} xs={12} md={6} lg={4} className="mb-4">
+            <Card>
+              <Card.Body>
+                <Card.Title>{workout.title}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">Difficulty: {workout.difficulty}</Card.Subtitle>
+                <Card.Text>
+                  <strong>Exercises:</strong>
                   <ul>
-                    {level.exercises.map((exercise, index) => (
-                      <li key={index}>
-                        {exercise.name}: {exercise.sets} sets x {exercise.reps} reps
+                    {workout.exercises.map((exercise, idx) => (
+                      <li key={idx}>
+                        {exercise.name} - {exercise.sets} sets x {exercise.reps} reps
                       </li>
                     ))}
                   </ul>
-                </Card.Body>
-              </Card>
-            ))}
+                </Card.Text>
+                <Card.Footer className="text-muted">Author: {workout.author}</Card.Footer>
+              </Card.Body>
+            </Card>
           </Col>
-        </Row>
-      ))}
-    </Container> */}
-  </div>
-);
+        ))}
+      </Row>
+    </Container>
+  );
+};
 
 export default ListWorkouts;
