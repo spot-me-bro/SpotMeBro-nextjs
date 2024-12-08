@@ -1,18 +1,21 @@
-import React from 'react';
 import ListWorkouts from '@/components/ListWorkouts';
+import { PrismaClient } from '@prisma/client';
 
-// Import your JSON workout data
-import workoutData from '../../../config/settings.development.json';
+const prisma = new PrismaClient(); // Start a new prisma session
 
-const Page: React.FC = () => {
-  const workouts = workoutData.defaultWorkouts; // Access the "defaultWorkouts" array
-
-  return (
-    <div>
-      <h1 className="text-center my-4">Workout List</h1>
-      <ListWorkouts workouts={workouts} />
-    </div>
-  );
+const ListWorkoutsPage = async () => {
+  // Pull the raw workouts from the prisma database
+  const prismaWorkouts = await prisma.workout.findMany();
+  // Remap the prisma workouts into the workouts type defined in the ListWorkouts.tsx interfacece
+  const workouts = prismaWorkouts.map((workout) => ({
+    title: workout.title,
+    type: workout.type,
+    difficulty: workout.difficulty,
+    exercises: workout.exercises as { name: string; sets: number; reps: string; }[],
+    author: workout.author,
+    id: workout.id,
+  }));
+  return <ListWorkouts workouts={workouts} />;
 };
 
-export default Page;
+export default ListWorkoutsPage;

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Card, Dropdown, DropdownButton } from 'react-bootstrap';
 
 // Define the Workout type interface based on your JSON structure
@@ -10,6 +10,7 @@ interface Workout {
   difficulty: string;
   exercises: { name: string; sets: number; reps: string }[];
   author: string;
+  id: number;
 }
 
 // Props for ListWorkouts
@@ -48,23 +49,34 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
 
       {/* Display filtered workouts */}
       <Row>
-        {filteredWorkouts.map((workout, index) => (
-          <Col key={index} xs={12} md={6} lg={4} className="mb-4">
+        {filteredWorkouts.map((workout) => (
+          <Col key={workout.id} xs={12} md={6} lg={4} className="mb-4">
             <Card>
               <Card.Body>
                 <Card.Title>{workout.title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Difficulty: {workout.difficulty}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">
+                  Difficulty:
+                  {workout.difficulty}
+                </Card.Subtitle>
                 <Card.Text>
                   <strong>Exercises:</strong>
-                  <ul>
-                    {workout.exercises.map((exercise, idx) => (
-                      <li key={idx}>
-                        {exercise.name} - {exercise.sets} sets x {exercise.reps} reps
-                      </li>
-                    ))}
-                  </ul>
                 </Card.Text>
-                <Card.Footer className="text-muted">Author: {workout.author}</Card.Footer>
+                <ul>
+                  {workout.exercises.map((exercise) => (
+                    <li key={exercise.name + workout.id}>
+                      {exercise.name}
+                      -
+                      {exercise.sets}
+                      sets x
+                      {exercise.reps}
+                      reps
+                    </li>
+                  ))}
+                </ul>
+                <Card.Footer className="text-muted">
+                  Author:
+                  { workout.author }
+                </Card.Footer>
               </Card.Body>
             </Card>
           </Col>
