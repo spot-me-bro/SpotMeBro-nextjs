@@ -6,7 +6,11 @@ import { prisma } from '@/lib/prisma';
 import EditProfileForm from '@/components/EditProfileForm';
 import authOptions from '@/lib/authOptions';
 
-export default async function EditProfilePage({ params }: { params: { id: string | string[] } }) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default async function EditProfilePage({ params }: PageProps) {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -15,7 +19,7 @@ export default async function EditProfilePage({ params }: { params: { id: string
     } | null,
   );
 
-  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
+  const id = Number(params.id);
 
   const profile: Profile | null = await prisma.profile.findUnique({
     where: { id },
