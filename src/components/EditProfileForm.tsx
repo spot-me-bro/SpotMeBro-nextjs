@@ -22,7 +22,7 @@ const EditProfileForm = ({ profile }: { profile: Profile }) => {
     reset,
     formState: { errors },
   } = useForm<Profile>({
-    resolver: yupResolver(EditProfileSchema), // ERROR on this line
+    resolver: yupResolver(EditProfileSchema),
   });
 
   return (
