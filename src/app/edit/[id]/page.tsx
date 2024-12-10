@@ -1,24 +1,8 @@
-import { getServerSession } from 'next-auth';
-import authOptions from '@/lib/authOptions';
-import { loggedInProtectedPage } from '@/lib/page-protection';
-
-export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {
-  // Protect the page, only logged in users can access it.
-  const session = await getServerSession(authOptions);
-  loggedInProtectedPage(
-    session as {
-      user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
-    } | null,
-  );
-  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  console.log(id);
-
+export default function EditStuffPage(): JSX.Element {
   return (
     <main>
-      <h1>
-        Testing to see if anythign is working
-      </h1>
+      <h1>Edit Page Placeholder</h1>
+      <p>This page is not yet implemented. Stay tuned!</p>
     </main>
   );
 }
