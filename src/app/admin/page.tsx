@@ -1,5 +1,6 @@
 import { getServerSession } from 'next-auth';
 import { Col, Container, Row, Table } from 'react-bootstrap';
+import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
@@ -51,6 +52,7 @@ const AdminPage = async () => {
                   <th>Current Type</th>
                   <th>Bio</th>
                   <th>Owner</th>
+                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,6 +64,11 @@ const AdminPage = async () => {
                     <td>{prof.type}</td>
                     <td>{prof.bio}</td>
                     <td>{prof.owner}</td>
+                    <td>
+                      <Link href={`/adminEdit?id=${prof.id}`}>
+                        Edit Profile
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -124,8 +131,5 @@ const AdminPage = async () => {
     </main>
   );
 };
-/*
-Finsihed updating seed.ts file, data is correctly being seeded and is accessable. See test in /app/admin/page
-*/
 
 export default AdminPage;

@@ -16,6 +16,7 @@ const onSubmit = async (data: Profile) => {
 };
 
 const EditProfileForm = ({ profile }: { profile: Profile }) => {
+  console.log(profile.firstName);
   const {
     register,
     handleSubmit,
