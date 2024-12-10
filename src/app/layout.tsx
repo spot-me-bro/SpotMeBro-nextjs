@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/Navbar';
 import { getServerSession } from 'next-auth';
 import { PrismaClient } from '@prisma/client';
+import authOptions from '@/lib/authOptions';
 import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -22,7 +23,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
   const currentUser = session?.user?.email; // Get current users email bassed on the session data
 
   let profile = null;

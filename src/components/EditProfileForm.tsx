@@ -16,13 +16,14 @@ const onSubmit = async (data: Profile) => {
 };
 
 const EditProfileForm = ({ profile }: { profile: Profile }) => {
+  console.log(profile.firstName);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm<Profile>({
-    resolver: yupResolver(EditProfileSchema), // ERROR on this line
+    resolver: yupResolver(EditProfileSchema),
   });
 
   return (
