@@ -108,7 +108,6 @@ body {
 	padding: 5px 0;
   }
 
-  /* MatchOrFind Component Styles */
 .match-or-find-container {
 	height: 100vh; 
   }
@@ -139,6 +138,7 @@ body {
 	background-color: #024731;
   }
   
-  
-  
+  .card {
+	min-height: 250px; 
+  }
   
