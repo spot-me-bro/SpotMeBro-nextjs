@@ -14,7 +14,6 @@ const ListPage = async () => {
     } | null,
   );
 
-  // console.log(stuff);
   return (
     <main>
       <Container id="list" fluid className="py-3">
