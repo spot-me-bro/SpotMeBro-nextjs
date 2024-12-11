@@ -66,7 +66,7 @@ const NavBar: React.FC<NavBarProps> = ({ profile }) => {
                     key="workoutdropdown"
                     active={pathName === '/workoutdropdown'}
                   >
-                    <strong>Select a Workout</strong>
+                    Select a Workout
                   </Nav.Link>,
                   <Nav.Link
                     id="match-or-find-nav"

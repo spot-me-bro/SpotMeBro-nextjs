@@ -26,7 +26,7 @@ body {
 
 .full-page-image {
 	width: 100vw;
-	height: 73.5vh; /* Adjust the height to your preference */
+	height: 77.5vh; /* Adjust the height to your preference */
 	background-image: url('/homepage1.jpg'); /* Use your image here */
 	background-size: cover;
 	background-position: center;
@@ -58,7 +58,7 @@ body {
 
   .about-us-page {
 	width: 100%;
-	min-height: 73.5vh; /* Ensure it covers the full viewport */
+	min-height: 77vh; /* Ensure it covers the full viewport */
 	background-image: url('/aboutus.webp'); /* Path to your background image */
 	background-size: cover; /* Scale the image to cover the entire container */
 	background-position: center; /* Center the image */
