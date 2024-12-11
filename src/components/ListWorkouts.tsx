@@ -37,7 +37,7 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
       {/* Dropdown to filter workouts */}
       <div className="d-flex justify-content-center my-4">
         <Dropdown onSelect={handleSelect}>
-          <DropdownButton variant="outline-dark" title={selectedType || 'Select workout type'}>
+          <DropdownButton variant="outline-dark" title={selectedType || 'Select Workout'}>
             <Dropdown.Item eventKey="Push">Push</Dropdown.Item>
             <Dropdown.Item eventKey="Pull">Pull</Dropdown.Item>
             <Dropdown.Item eventKey="Legs">Legs</Dropdown.Item>
