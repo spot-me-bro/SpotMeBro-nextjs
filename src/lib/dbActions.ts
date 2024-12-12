@@ -51,3 +51,13 @@ export async function EditProfile(profile: Profile) {
   });
   redirect('/list');
 }
+
+export async function ChangeType(profile: Profile) {
+  await prisma.profile.update({
+    where: { id: profile.id },
+    data: {
+      type: profile.type,
+    },
+  });
+  redirect('/MatchOrFind');
+}
