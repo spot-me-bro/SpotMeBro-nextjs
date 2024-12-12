@@ -2,13 +2,21 @@
 
 import React, { useState } from 'react';
 import { Container, Dropdown, DropdownButton } from 'react-bootstrap';
+import { useRouter } from 'next/navigation';
 
 const WorkoutDropdown: React.FC = () => {
   const [selectedWorkout, setSelectedWorkout] = useState<string>('');
+  const router = useRouter();
 
   const handleSelect = (eventKey: string | null) => {
     if (eventKey) {
       setSelectedWorkout(eventKey);
+    }
+  };
+
+  const handleSubmit = () => {
+    if (selectedWorkout) {
+      router.push('/MatchOrFind');
     }
   };
 
@@ -24,7 +32,7 @@ const WorkoutDropdown: React.FC = () => {
             <Dropdown.Item eventKey="Cardio">Cardio</Dropdown.Item>
           </DropdownButton>
         </Dropdown>
-        <button type="button" className="btn btn-primary">Submit</button>
+        <button type="button" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
       </div>
     </Container>
   );
