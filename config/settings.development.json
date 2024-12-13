@@ -145,7 +145,7 @@
 		  "exercises": [
 			{ "name": "Pull-Ups", "sets": 4, "reps": "8-10" },
 			{ "name": "Bent-Over Barbell Rows", "sets": 4, "reps": "6-8" },
-			{ "name": "T-Bar Rows or Chest-Supported Rows", "sets": 3, "reps": "8-10" },
+			{ "name": "T-Bar Rows", "sets": 3, "reps": "8-10" },
 			{ "name": "Hammer Curls", "sets": 3, "reps": "8-10" }
 		  ],
 		  "author": "admin3@gmail.com"

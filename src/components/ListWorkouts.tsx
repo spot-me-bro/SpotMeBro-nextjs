@@ -66,14 +66,7 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
                 <ul>
                   {workout.exercises.map((exercise) => (
                     <li key={exercise.name + workout.id}>
-                      {exercise.name}
-                      :
-                      {exercise.sets}
-                      {' '}
-                      sets x
-                      {exercise.reps}
-                      {' '}
-                      reps
+                      {`${exercise.name}: ${exercise.sets} sets x ${exercise.reps} reps`}
                     </li>
                   ))}
                 </ul>
