@@ -9,7 +9,7 @@ const MatchOrFind: React.FC = () => (
     <Row className="justify-content-center">
       <Col xs="auto">
         <Button href="/list_partners" className="match-or-find-button">
-          Match Gym Bros
+          Match Gym Partners
         </Button>
       </Col>
       <Col xs="auto">
