@@ -22,7 +22,7 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Gym Partner Matching</Card.Title>
                 <Card.Text>
-				Find like-minded gym partners based on fitness level, experience, and workout preferences.
+                  Find like-minded gym partners based on fitness level, experience, and workout preferences.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -32,7 +32,7 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Profile Customization</Card.Title>
                 <Card.Text>
-				Create a profile that showcases your fitness goals, achievements, and availability.
+                  Create a profile that showcases your fitness goals, achievements, and availability.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -42,7 +42,7 @@ const AboutUs: React.FC = () => (
               <Card.Body>
                 <Card.Title>Workout Plans</Card.Title>
                 <Card.Text>
-				Browse curated workout plans tailored to your fitness level and goals.
+                  Browse curated workout plans tailored to your fitness level and goals.
                 </Card.Text>
               </Card.Body>
             </Card>

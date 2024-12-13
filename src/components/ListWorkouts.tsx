@@ -56,7 +56,9 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{workout.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Difficulty: {workout.difficulty}
+                  Difficulty:
+                  {' '}
+                  {workout.difficulty}
                 </Card.Subtitle>
                 <Card.Text>
                   <strong>Exercises:</strong>
@@ -64,7 +66,14 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
                 <ul>
                   {workout.exercises.map((exercise) => (
                     <li key={exercise.name + workout.id}>
-                      {exercise.name}: {exercise.sets} sets x {exercise.reps} reps
+                      {exercise.name}
+                      :
+                      {exercise.sets}
+                      {' '}
+                      sets x
+                      {exercise.reps}
+                      {' '}
+                      reps
                     </li>
                   ))}
                 </ul>

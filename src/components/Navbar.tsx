@@ -2,7 +2,6 @@
 
 import { WorkoutType } from '@prisma/client';
 import { useSession } from 'next-auth/react';
-import { usePathname } from 'next/navigation';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import { BoxArrowRight } from 'react-bootstrap-icons';
 
@@ -30,45 +29,38 @@ function converter(type: WorkoutType | undefined): string {
 
 const NavBar: React.FC<NavBarProps> = ({ profile }) => {
   const { data: session } = useSession();
+  const userWithRole = session?.user as { email: string; randomKey?: string };
   const currentUser = session?.user?.email;
-  const userWithRole = session?.user as { email: string; randomKey: string };
-  const role = userWithRole?.randomKey;
-  const pathName = usePathname();
+  const isAdmin = userWithRole?.randomKey === 'ADMIN';
+  const isSignedIn = !!session;
 
   return (
     <Navbar className="custom-navbar py-3" expand="lg">
       <Container>
+        {/* Logo and Brand */}
         <Navbar.Brand href="/" className="d-flex align-items-center">
-          <Image
-            src="/newlogo.png"
-            alt="SpotMeBro Logo"
-            height={85}
-            className="me-2"
-          />
+          <Image src="/newlogo.png" alt="SpotMeBro Logo" height={85} className="me-2" />
           <span className="brand-name">SpotMeBro</span>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto me-auto">
-            {currentUser
-              ? (
-                <>
-                  <Nav.Link href="/list_partners" active={pathName === '/list_partners'}>List Partners</Nav.Link>
-                  <Nav.Link href="/WorkoutDropdown" active={pathName === '/workoutdropdown'}>Select a Workout</Nav.Link>
-                  <Nav.Link href="/MatchOrFind" active={pathName === '/matchorfind'}>Match or Find</Nav.Link>
-                  <Nav.Link href="/ListWorkouts" active={pathName === '/listworkouts'}>Workouts</Nav.Link>
-                  {currentUser && role === 'ADMIN' && (
-                    <Nav.Link href="/admin" active={pathName === '/admin'}>Admin</Nav.Link>
-                  )}
-                </>
-              )
-              : ''
-            }
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          {/* Links (Admin/User) */}
+          <Nav className="me-auto">
+            {isSignedIn && isAdmin && (
+            <Nav.Link className="admin-link" href="/admin">Admin</Nav.Link>
+            )}
+            {isSignedIn && !isAdmin && (
+            <>
+              <Nav.Link href="/WorkoutDropdown">Select A Workout</Nav.Link>
+              <Nav.Link href="/MatchOrFind">Match Or Find</Nav.Link>
+            </>
+            )}
           </Nav>
 
+          {/* Workout Type and User Dropdown */}
           <Nav className="align-items-center">
-            {session ? (
+            {isSignedIn ? (
               <>
                 <span className="me-3 workout-type">
                   {`Current workout type: ${converter(profile?.type)}` || 'List Stuff'}
