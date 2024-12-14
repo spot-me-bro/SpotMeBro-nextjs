@@ -52,8 +52,19 @@ const SignUp = () => {
   });
 
   const onSubmit = async (data: SignUpForm) => {
-    await createUser(data);
-    await createProfile(data);
+    await createUser({
+      email: data.email,
+      password: data.password,
+    });
+    // Only passing the data that is required for the createProfile and createUser functions
+    await createProfile({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      bio: data.bio,
+      type: 'cardio', // Cardio is a defualt value for now
+      owner: data.email,
+    });
     await signIn('credentials', { callbackUrl: '/WorkoutDropdown', ...data });
   };
 

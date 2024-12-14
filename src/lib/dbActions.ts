@@ -28,7 +28,10 @@ export async function createUser(credentials: { email: string; password: string 
  * Creates a new profile in the database.
  * @param credentials, an object with the following properties: email, password.
  */
-export async function createProfile(profile: Profile) {
+// Omiting the id part of the profile object
+// This lets the autoincriment function in the prisma schema to be used as the id
+// rather than us having to deal with it here
+export async function createProfile(profile: Omit<Profile, 'id'>) {
   await prisma.profile.create({
     data: {
       firstName: profile.firstName,
