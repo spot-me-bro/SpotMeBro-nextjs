@@ -37,12 +37,12 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
       {/* Dropdown to filter workouts */}
       <div className="d-flex justify-content-center my-4">
         <Dropdown onSelect={handleSelect}>
-          <DropdownButton variant="outline-dark" title={selectedType || 'Select workout type'}>
-            <Dropdown.Item eventKey="push">Push</Dropdown.Item>
-            <Dropdown.Item eventKey="pull">Pull</Dropdown.Item>
-            <Dropdown.Item eventKey="legs">Legs</Dropdown.Item>
-            <Dropdown.Item eventKey="full">Full Body</Dropdown.Item>
-            <Dropdown.Item eventKey="cardio">Cardio</Dropdown.Item>
+          <DropdownButton variant="outline-dark" title={selectedType || 'Select Workout'}>
+            <Dropdown.Item eventKey="Push">Push</Dropdown.Item>
+            <Dropdown.Item eventKey="Pull">Pull</Dropdown.Item>
+            <Dropdown.Item eventKey="Legs">Legs</Dropdown.Item>
+            <Dropdown.Item eventKey="Full">Full Body</Dropdown.Item>
+            <Dropdown.Item eventKey="Cardio">Cardio</Dropdown.Item>
           </DropdownButton>
         </Dropdown>
       </div>
@@ -51,11 +51,13 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
       <Row>
         {filteredWorkouts.map((workout) => (
           <Col key={workout.id} xs={12} md={6} lg={4} className="mb-4">
-            <Card>
-              <Card.Body>
+            {/* Add h-100 and flex classes */}
+            <Card className="h-100 d-flex flex-column">
+              <Card.Body className="d-flex flex-column">
                 <Card.Title>{workout.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   Difficulty:
+                  {' '}
                   {workout.difficulty}
                 </Card.Subtitle>
                 <Card.Text>
@@ -64,19 +66,10 @@ const ListWorkouts: React.FC<ListWorkoutsProps> = ({ workouts }) => {
                 <ul>
                   {workout.exercises.map((exercise) => (
                     <li key={exercise.name + workout.id}>
-                      {exercise.name}
-                      -
-                      {exercise.sets}
-                      sets x
-                      {exercise.reps}
-                      reps
+                      {`${exercise.name}: ${exercise.sets} sets x ${exercise.reps} reps`}
                     </li>
                   ))}
                 </ul>
-                <Card.Footer className="text-muted">
-                  Author:
-                  { workout.author }
-                </Card.Footer>
               </Card.Body>
             </Card>
           </Col>

@@ -1,4 +1,4 @@
-import FullWidthImage from '@/components/FullWidthImage';
+import FullWidthImage from '@/components/LandingPage';
 import { Container } from 'react-bootstrap';
 
 const FullWidthImagePage = () => (
