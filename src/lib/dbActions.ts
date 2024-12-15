@@ -1,7 +1,7 @@
 'use server';
 
 import { hash } from 'bcrypt';
-import { Profile } from '@prisma/client';
+import { Profile, Workout } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
 
@@ -49,5 +49,21 @@ export async function EditProfile(profile: Profile) {
       bio: profile.bio,
     },
   });
-  redirect('/list');
+  redirect('/list_partners');
+}
+
+export async function EditWorkout(workout: Workout) {
+  const exercises = workout.exercises ?? [];
+
+  await prisma.workout.update({
+    where: { id: workout.id },
+    data: {
+      title: workout.title,
+      type: workout.type,
+      difficulty: workout.difficulty,
+      exercises,
+      author: workout.author,
+    },
+  });
+  redirect('/admin');
 }
