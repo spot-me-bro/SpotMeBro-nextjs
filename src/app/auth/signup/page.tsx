@@ -5,19 +5,25 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Col, Container, Button, Form, Row } from 'react-bootstrap';
-import { createUser } from '@/lib/dbActions';
+import { createUser, createProfile } from '@/lib/dbActions';
 
 type SignUpForm = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirmPassword: string;
+  bio: string;
 };
 
 /** The sign up page. */
 const SignUp = () => {
   const validationSchema = Yup.object().shape({
-    name: Yup.string()
+    firstName: Yup.string()
+      .required('Name is required')
+      .min(2, 'Name must be at least 2 characters')
+      .max(50, 'Name must not exceed 50 characters'),
+    lastName: Yup.string()
       .required('Name is required')
       .min(2, 'Name must be at least 2 characters')
       .max(50, 'Name must not exceed 50 characters'),
@@ -31,6 +37,9 @@ const SignUp = () => {
     confirmPassword: Yup.string()
       .required('Confirm Password is required')
       .oneOf([Yup.ref('password'), ''], 'Confirm Password does not match'),
+    bio: Yup.string()
+      .required('Bio is required')
+      .min(2, 'Describe a little about yourself'),
   });
 
   const {
@@ -43,7 +52,19 @@ const SignUp = () => {
   });
 
   const onSubmit = async (data: SignUpForm) => {
-    await createUser(data);
+    await createUser({
+      email: data.email,
+      password: data.password,
+    });
+    // Only passing the data that is required for the createProfile and createUser functions
+    await createProfile({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      bio: data.bio,
+      type: 'cardio', // Cardio is a defualt value for now
+      owner: data.email,
+    });
     await signIn('credentials', { callbackUrl: '/WorkoutDropdown', ...data });
   };
 
@@ -56,15 +77,25 @@ const SignUp = () => {
             <Card>
               <Card.Body>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                  {/* Name Field */}
+                  {/* First Name Field */}
                   <Form.Group className="form-group">
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>First Name</Form.Label>
                     <input
                       type="text"
-                      {...register('name')}
-                      className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                      {...register('firstName')}
+                      className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
                     />
-                    <div className="invalid-feedback">{errors.name?.message}</div>
+                    <div className="invalid-feedback">{errors.firstName?.message}</div>
+                  </Form.Group>
+                  {/* Last Name Field */}
+                  <Form.Group className="form-group">
+                    <Form.Label>Last Name</Form.Label>
+                    <input
+                      type="text"
+                      {...register('lastName')}
+                      className={`form-control ${errors.lastName ? 'is-invalid' : ''}`}
+                    />
+                    <div className="invalid-feedback">{errors.lastName?.message}</div>
                   </Form.Group>
 
                   {/* Email Field */}
@@ -99,7 +130,16 @@ const SignUp = () => {
                     />
                     <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
                   </Form.Group>
-
+                  {/* Create Bio Field */}
+                  <Form.Group className="form-group">
+                    <Form.Label>Bio</Form.Label>
+                    <input
+                      type="bio"
+                      {...register('bio')}
+                      className={`form-control ${errors.bio ? 'is-invalid' : ''}`}
+                    />
+                    <div className="invalid-feedback">{errors.bio?.message}</div>
+                  </Form.Group>
                   {/* Buttons */}
                   <Form.Group className="form-group py-3">
                     <Row>

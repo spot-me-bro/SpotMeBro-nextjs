@@ -77,9 +77,10 @@ const EditWorkoutForm = ({ workout }: { workout: any }) => {
                 </Form.Group>
 
                 <Form.Group>
-                  <Form.Label>Exercises</Form.Label>
+                  <Form.Label>Exercises:</Form.Label>
                   {workout.exercises.map((exercise: any, index: number) => (
-                    <div key={exercise + workout} className="exercise-row">
+                    <div key={exercise + workout} className="exercise-row" style={{ marginBottom: '40px' }}>
+                      <Form.Label>Exercise Name</Form.Label>
                       <Form.Control
                         type="text"
                         {...register(`exercises.${index}.name`)}
@@ -87,13 +88,16 @@ const EditWorkoutForm = ({ workout }: { workout: any }) => {
                         placeholder="Exercise Name"
                         className={`form-control ${errors.exercises?.[index]?.name ? 'is-invalid' : ''}`}
                       />
+                      <Form.Label>Number of Sets</Form.Label>
                       <Form.Control
                         type="number"
                         {...register(`exercises.${index}.sets`)}
                         defaultValue={exercise.sets}
                         placeholder="Sets"
                         className={`form-control ${errors.exercises?.[index]?.sets ? 'is-invalid' : ''}`}
+
                       />
+                      <Form.Label>Number of Reps</Form.Label>
                       <Form.Control
                         type="text"
                         {...register(`exercises.${index}.reps`)}
