@@ -3,9 +3,8 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import { prisma } from '@/lib/prisma';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
-// import { Profile } from '@prisma/client';
 
-/** Render a list of stuff for the logged in user. */
+/** Render a list of profiles for the logged in user. */
 const ListPage = async () => {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
@@ -14,14 +13,14 @@ const ListPage = async () => {
       user: { email: string; id: string; randomKey: string };
     } | null,
   );
-  // const owner = (session && session.user && session.user.email) || '';
-  // console.log(stuff);
+  // Get the current user's email and use that to find their profile
   const userEmail = session?.user?.email;
   const userProf = userEmail
     ? await prisma.profile.findUnique({
       where: { email: userEmail },
     })
     : null;
+  // Get a list of profiles filtered by the type that the current user has selected
   const profiles = userProf?.type
     ? await prisma.profile.findMany({
       where: { type: userProf.type },
