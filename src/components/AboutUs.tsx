@@ -9,7 +9,7 @@ const AboutUs: React.FC = () => (
       <Container className="py-5">
         <Row className="mb-4">
           <Col>
-            <h1 className="display-4 fw-bold text-center">About Us</h1>
+            <h1 className="display-4 fw-bold text-center">Key Features</h1>
             <p className="text-center text-muted">
               Welcome to SpotMeBro! Your ultimate hub for connecting with gym partners,
               discovering workouts, and conquering your fitness goals—together.
@@ -20,10 +20,9 @@ const AboutUs: React.FC = () => (
           <Col md={4}>
             <Card className="shadow-sm border-0 h-100">
               <Card.Body>
-                <Card.Title>Our Mission</Card.Title>
+                <Card.Title>Gym Partner Matching</Card.Title>
                 <Card.Text>
-                  At SpotMeBro, we aim to create a community where students can connect,
-                  collaborate, and succeed together.
+                  Find like-minded gym partners based on fitness level, experience, and workout preferences.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -31,10 +30,9 @@ const AboutUs: React.FC = () => (
           <Col md={4}>
             <Card className="shadow-sm border-0 h-100">
               <Card.Body>
-                <Card.Title>Why Choose Us?</Card.Title>
+                <Card.Title>Profile Customization</Card.Title>
                 <Card.Text>
-                  We provide tools to manage your workouts, track progress, and share achievements
-                  with like-minded individuals.
+                  Create a profile that showcases your fitness goals, achievements, and availability.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -42,10 +40,9 @@ const AboutUs: React.FC = () => (
           <Col md={4}>
             <Card className="shadow-sm border-0 h-100">
               <Card.Body>
-                <Card.Title>Our Vision</Card.Title>
+                <Card.Title>Workout Plans</Card.Title>
                 <Card.Text>
-                  Our vision is to create a healthier, stronger world by fostering a supportive community for everyone,
-                  from beginners to experts.
+                  Browse curated workout plans tailored to your fitness level and goals.
                 </Card.Text>
               </Card.Body>
             </Card>
