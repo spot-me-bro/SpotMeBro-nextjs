@@ -26,7 +26,7 @@ const ListPage = async () => {
       where: { type: userProf.type },
     })
     : [];
-  // Make sure we dont show the current user's profile in the list of matches 
+  // Make sure we dont show the current user's profile in the list of matches
   for (let i = 0; i < profiles.length; i++) {
     if (profiles[i].owner === userEmail) {
       profiles.splice(i, 1);
