@@ -4,7 +4,14 @@ import { PrismaClient } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { Container } from 'react-bootstrap';
 
-const prisma = new PrismaClient();
+// The landing page after a user signs in, lets the user choose what type of workout they want to work on that day
+const Dropdown = () => (
+  <main>
+    <Container className="py-3">
+      <WorkoutDropdown />
+    </Container>
+  </main>
+);
 
 export default async function Dropdown(): Promise<JSX.Element> {
   const session = await getServerSession(authOptions);

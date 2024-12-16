@@ -1,14 +1,9 @@
 'use server';
 
 import { hash } from 'bcrypt';
-import { Profile } from '@prisma/client';
+import { Profile, Workout } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
-
-/**
- * Deletes an existing stuff from the database.
- * @param id, the id of the stuff to delete.
- */
 
 /**
  * Creates a new user in the database.
@@ -26,6 +21,7 @@ export async function createUser(credentials: { email: string; password: string 
 }
 /**
  * Creates a new profile in the database.
+
  * @param credentials, an object with the following properties: email, password.
  */
 // Omiting the id part of the profile object
@@ -57,7 +53,11 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
-
+/**
+ * Update the information for the given profile
+ * It only updates the user information
+ * The automaticlly generated information such as Id or time stays the same
+ */
 export async function EditProfile(profile: Profile) {
   await prisma.profile.update({
     where: { id: profile.id },
@@ -68,7 +68,24 @@ export async function EditProfile(profile: Profile) {
       bio: profile.bio,
     },
   });
-  redirect('/list');
+  redirect('/list_partners');
+}
+/**
+ * Updates the infromation for a sepcific workout
+ */
+export async function EditWorkout(workout: Workout) {
+  const exercises = workout.exercises ?? [];
+  await prisma.workout.update({
+    where: { id: workout.id },
+    data: {
+      title: workout.title,
+      type: workout.type,
+      difficulty: workout.difficulty,
+      exercises,
+      author: workout.author,
+    },
+  });
+  redirect('/admin');
 }
 
 export async function ChangeType(profile: Profile) {
