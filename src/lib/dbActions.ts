@@ -21,6 +21,7 @@ export async function createUser(credentials: { email: string; password: string 
 }
 /**
  * Creates a new profile in the database.
+
  */
 // Omiting the id part of the profile object
 // This lets the autoincriment function in the prisma schema to be used as the id
@@ -84,4 +85,14 @@ export async function EditWorkout(workout: Workout) {
     },
   });
   redirect('/admin');
+}
+
+export async function ChangeType(profile: Profile) {
+  await prisma.profile.update({
+    where: { id: profile.id },
+    data: {
+      type: profile.type,
+    },
+  });
+  redirect('/MatchOrFind');
 }
