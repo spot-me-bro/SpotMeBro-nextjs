@@ -86,6 +86,7 @@ const AdminPage = async () => {
                   <th>Type</th>
                   <th>Exercises</th>
                   <th>Author</th>
+                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,6 +121,11 @@ const AdminPage = async () => {
                         )}
                       </td>
                       <td>{workout.author}</td>
+                      <td>
+                        <Link href={`/editWorkout?id=${workout.id}`}>
+                          Edit Workout
+                        </Link>
+                      </td>
                     </tr>
                   );
                 })}

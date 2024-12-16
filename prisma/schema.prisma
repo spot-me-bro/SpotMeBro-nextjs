@@ -1,4 +1,4 @@
-// LAST UPDATED 12/2/2024
+// LAST UPDATED 12/15/2024
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -6,15 +6,17 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 
-//------- Documentation for prisma schema
+//------- Documentation for prisma schema -------
 // There are two roles,  USER and ADMIN
 // There are also profiles which store a users data, each profile has a unique user
-// (each user doesnt specifically have a unique profile, however we should make sure that this is the case)
+// Each user doesnt specifically have a unique profile,
+// However it is not possible for a user to make a User without making a Profile
 // Admins do not have profiles 
 // We use profiles to match people and decide what workout type or style they are into that day
-// The user is purely for backend categorization and logging purposes
-// We also have workouts which are used to store the workouts being writtten
-// They will be sorted by type and later by experience 
+// The user is purely for backend categorization and session clarification
+// We also have workouts which are as the name implies a list of instructions forming a workout 
+// They will be sorted by type in another page
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -35,8 +37,8 @@ enum Role {
 }
 
 
-//The model for a user, it is largely a backend tool to store all the people who have accounts
-
+// The model for a user, it is largely a backend tool to store all the people who have accounts
+// It also is used for session verification
 model User {
   id        Int     @id @default(autoincrement())
   email     String  @unique
@@ -63,7 +65,7 @@ model Profile {
 
 
 // The current type of workout the user would like to find partners for and information about
-// The status of this selection will be displayed on the user navbar and will be updated whenever the user
+// The status of this selection is displayed on the user navbar and will be updated whenever the user
 // Picks a new type of workout
 
 enum WorkoutType {
@@ -75,7 +77,7 @@ enum WorkoutType {
 }
 
 // These are the actual workouts that users will get recomended based on their currently selected type
-// The author is required for accountability among administrators as well as logging purpose
+// The author is used for accountability among administrators as well as logging purpose
 model Workout {
   id          Int       @id @default(autoincrement())
   title       String    @unique
